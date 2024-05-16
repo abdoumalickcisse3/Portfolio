@@ -157,3 +157,19 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+document.getElementById('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  // Récupérer les valeurs des champs
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var message = document.getElementById('message').value;
+
+  // Envoyer les données à l'adresse e-mail spécifiée
+  var mailtoLink = 'mailto:abdoumalickcisse8@gmail.com' +
+                   '?subject=' + encodeURIComponent('Message from ' + name) +
+                   '&body=' + encodeURIComponent(message + '\n\nFrom: ' + email);
+
+  // Ouvrir l'application de messagerie par défaut de l'utilisateur avec le lien mailto
+  window.location.href = mailtoLink;
+});
